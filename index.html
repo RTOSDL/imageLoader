@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图片加载</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="head">
+		<ul>
+			<li><a href="index.html" class="sure">无序加载 </a></li>
+			<li><a href="partTwo.html">有序加载</a></li>
+		</ul>
+	</div>
+	<div class="imgBox">
+		<img src="images/1.jpg" id="img" />
+
+		<a href="javascript:;" data-control="prev" class="btn btn-left">&lt;</a>
+		<a href="javascript:;" data-control="next" class="btn btn-right">&gt;</a>
+		<!-- <p>
+			<a href="javascript:;" data-control="prev" class="btn">上一张</a>
+			<a href="javascript:;" data-control="next" class="btn">下一张</a>
+		</p>  -->
+	</div>
+	<div class="progress">
+		<p>0%</p>
+	</div>
+
+<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery/preload.js"></script>
+<script type="text/javascript">
+
+	var imgs = [
+		"images/1.jpg",
+		"images/2.jpg",
+		"images/3.jpg",
+		"images/4.jpg",
+		"images/5.jpg",
+		"images/6.jpg",
+		"images/7.jpg",
+		"images/8.jpg",
+		"images/9.jpg",
+		"images/10.jpg"
+	];
+
+	var index = 0,
+		len = imgs.length,
+		count = 0,
+		$progress = $('.progress');
+
+	$.preload(imgs , {
+		order : 'unordered',
+		each : function(){
+			$progress.html(Math.round((count+1) / len * 100) + '%');
+		},
+		all : function(){
+			$progress.hide();
+			$('.imgBox').show();
+		}
+	});
+
+	// $.each(imgs, function(i, src) {
+	// 	var imgObj = new Image();	 
+	// 	$(imgObj).on('load', function() {
+	// 		$progress.html(Math.round((count+1) / len * 100) + '%');
+
+	// 		console.log(count );
+
+	// 		if(count >= len-1){
+	// 			$progress.hide();
+	// 			$('.imgBox').show();
+	// 		}
+	// 		count++;
+	// 	});
+	// 	imgObj.src = src;
+	// });
+
+
+	$(".btn").on('click', function(){
+		if('prev' === $(this).data('control')){
+			index--;
+			if(index < 0){
+				index = len-1;
+			}
+		}else{
+			index++;
+			if(index > len-1){
+				index = 0;
+			}
+		}
+		$("#img").attr('src' , imgs[index])
+	});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+}
+.head{
+	height: 50px;
+	width: 100%;
+	background-color: #494949;
+	ul{
+		display: block;
+		width: 800px;
+		margin:0 auto;
+		li{
+			float: left;
+			list-style: none;
+			width: 150px;
+			text-align: center;
+			a{
+				text-decoration: none;
+				color: #FFFFFF;
+				line-height: 50px;
+				width: 120px;
+				display: inline-block;
+				&:hover{
+					background-color: #9B9B9B;
+				}
+			}
+			.sure{
+				background-color: #9B9B9B;
+			}
+		}
+	}
+}
+
+.imgBox{
+	display: none;
+	text-align: center;
+	margin-top: 3px;
+	color: black;
+	position: relative;
+	img{
+		width: 100%;
+	}
+	.btn{
+		position: absolute;
+		top: 50%;
+		font-size: 50px;
+		color: #FFFFFF;
+		display: inline-block;
+		width: 60px;
+		line-height: 120px;
+		height: 120px;
+		background-color: #5A5757;
+		opacity: 0.5;
+	}
+	.btn-left{
+		left: 0;
+		margin-left: 20px;
+	}
+	.btn-right{
+		right: 0;
+		margin-right: 20px;
+	}
+	// p{
+	// 	margin:	10px 0 20px;
+	// 	a{
+	// 		text-decoration: none;
+	// 		color: #FFFFFF;
+	// 		display: inline-block;
+	// 		line-height: 30px;
+	// 		margin-left: 30px;
+	// 		width: 100px;
+	// 		background-color: #494949;
+	// 		&:hover{
+	// 			background-color: #9B9B9B;
+	// 		}
+	// 	}
+	// }
+}
+.progress{
+	width: 100%;
+	height: 500px;
+	text-align: center;
+	font-size: 30px;
+	line-height: 500px;
+}
